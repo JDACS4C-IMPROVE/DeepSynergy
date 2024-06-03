@@ -87,12 +87,13 @@ def run(params):
     norm = 'tanh' 
     #data_file = 'data_test_fold0_tanh.p.gz' # pickle file which contains the data (produced with normalize.ipynb)
     data_file = 'data_test_fold0_tanh.p'
-    with open(data_file, 'rb') as f:
-        file = pickle.load(f)
+    #with open(data_file, 'rb') as f:
+    #    file = pickle.load(f)
 
     #file = gzip.open(data_file, 'rb')
-    X_tr, X_val, X_train, X_test, y_tr, y_val, y_train, y_test = pickle.load(file)
-    file.close()
+    with open(data_file, 'rb') as file:
+        X_tr, X_val, X_train, X_test, y_tr, y_val, y_train, y_test = pickle.load(file)
+    #file.close()
     
     # ------------------------------------------------------
     # Prepare model

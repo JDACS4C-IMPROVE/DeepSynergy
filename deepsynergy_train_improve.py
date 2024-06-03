@@ -78,10 +78,19 @@ def run(params):
     # ------------------------------------------------------
     # Load data
     # ------------------------------------------------------
-    hyperparameter_file = 'hyperparameters' # textfile which contains the hyperparameters of the model
-    data_file = 'data_test_fold0_tanh.p.gz' # pickle file which contains the data (produced with normalize.ipynb)
-    exec(open(hyperparameter_file).read()) 
-    file = gzip.open(data_file, 'rb')
+    layers = [8182,4096,1] 
+    epochs = 1000 
+    act_func = tf.nn.relu 
+    dropout = 0.5 
+    input_dropout = 0.2
+    eta = 0.00001 
+    norm = 'tanh' 
+    #data_file = 'data_test_fold0_tanh.p.gz' # pickle file which contains the data (produced with normalize.ipynb)
+    data_file = 'data_test_fold0_tanh.p'
+    with open(data_file, 'rb') as f:
+        file = pickle.load(f)
+
+    #file = gzip.open(data_file, 'rb')
     X_tr, X_val, X_train, X_test, y_tr, y_val, y_train, y_test = pickle.load(file)
     file.close()
     

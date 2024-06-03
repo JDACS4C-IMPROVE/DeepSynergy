@@ -67,7 +67,7 @@ def run(params: Dict):
     # ------------------------------------------------------
     # [Req] Build paths and create output dir
     # ------------------------------------------------------
-    params = frm.build_paths(params)  
+    #params = frm.build_paths(params)  
 
     frm.create_outdir(outdir=params["ml_data_outdir"])
 
